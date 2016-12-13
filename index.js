@@ -69,15 +69,17 @@ const aaencode = function (text) {
 
 program
   .version(pkg.version)
+  .option('-o, --output', 'Output file name')
   .parse(process.argv)
 
 if (program.args.length === 0) {
   program.help()
 } else {
   const file = path.resolve(program.args[0])
+  const filename = program.args.length > 1 ? program.args[1] : 'aaencode.js'
   fs.readFile(file, function (err, buffer) {
     if (err) throw err
-    fs.writeFile('aaencode.js', aaencode(buffer.toString()), (err) => {
+    fs.writeFile(filename, aaencode(buffer.toString()), (err) => {
       if (err) throw err
       console.log('Done!')
     })
