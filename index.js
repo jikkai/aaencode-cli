@@ -69,19 +69,26 @@ const aaencode = function (text) {
 
 program
   .version(pkg.version)
-  .option('-o, --output', 'Output file name')
+  .option('-o, --output', 'set output filename')
   .parse(process.argv)
 
 if (program.args.length === 0) {
   program.help()
 } else {
   const file = path.resolve(program.args[0])
-  const filename = program.args.length > 1 ? program.args[1] : 'aaencode.js'
-  fs.readFile(file, function (err, buffer) {
-    if (err) throw err
-    fs.writeFile(filename, aaencode(buffer.toString()), (err) => {
+
+  new Promise((resolve, rejected) => {
+    fs.readFile(file, (err, buffer) => {
       if (err) throw err
-      console.log('Done!')
+      resolve(buffer.toString())
     })
+  }).then((str) => {
+    if (program.args.length > 1) {
+      fs.writeFile(program.args[1], aaencode(str), (err) => {
+        if (err) throw err
+      })
+    } else {
+      console.log(aaencode(str))
+    }
   })
 }

@@ -1,4 +1,5 @@
 # aaencode
+> Make your code UNREADABLE(ﾟДﾟ)!
 
 ## Installation
 ```
@@ -13,5 +14,8 @@ Options:
 
   -h, --help     output usage information
   -V, --version  output the version number
-  -o, --output   Output file name
+  -o, --output   set output filename
 ```
+
+## LICENSE
+MIT
