@@ -1,0 +1,15 @@
+{
+  "name": "aaencode-cli",
+  "version": "0.0.1",
+  "description": "A command-line JavaScript Encoder????",
+  "main": "./index.js",
+  "repository": "git@github.com:jikkai/aaencode-cli.git",
+  "author": "Jikkai Xiao <sonne@asaki.me>",
+  "license": "MIT",
+  "bin": {
+    "aaencode": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
