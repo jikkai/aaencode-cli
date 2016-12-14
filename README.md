@@ -17,5 +17,5 @@ Options:
   -o, --output   set output filename
 ```
 
-## LICENSE
+## License
 MIT
